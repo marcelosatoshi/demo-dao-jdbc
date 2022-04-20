@@ -11,18 +11,25 @@ public class Program {
 
 	public static void main(String[] args) {
 
-			
-			
-			SellerDao sellerDao = DaoFactory.createrSellerDao();
-			
-			Seller seller = sellerDao.findById(3);
-			
-			System.out.println(seller);
-			Department department = new Department(2, null);
-			List<Seller> list = sellerDao.findAllDepartment(department); 
-			for (Seller obj : list) {
-				System.out.println(obj);
-			}
+		SellerDao sellerDao = DaoFactory.createrSellerDao();
+
+		Seller seller = sellerDao.findById(3);
+
+		System.out.println(seller);
+
+		System.out.println();
+
+		List<Seller> list = sellerDao.findAllDepartment(new Department(2, null));
+		for (Seller obj : list) {
+			System.out.println(obj);
+		}
+
+		System.out.println();
+
+		list = sellerDao.findAll();
+		for (Seller obj : list) {
+			System.out.println(obj);
+		}
 	}
 
 }
